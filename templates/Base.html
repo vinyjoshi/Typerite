@@ -49,15 +49,18 @@
     <div id="top" class="s-wrap site-wrapper">
 
 
-    {% include 'partials/_header.html' %}   
+    {% include 'partials/_header.html' %}
+    {% if '/' == request.path %}
+        {% include 'partials/_buttons.html' %}
+    {% endif %}
 
     {% block content %}
-    
     {% endblock %}
 
     {% include 'partials/_footer.html' %}
 
-    </div> <!-- end s-wrap -->
+    </div> 
+    <!-- end s-wrap -->
 
 
     <!-- Java Script
