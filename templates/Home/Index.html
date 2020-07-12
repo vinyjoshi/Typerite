@@ -1,5 +1,7 @@
+{% extends 'Base.html' %}
 {% load static %}
 
+{% block content %}
 <div class="s-content">
             
     <div class="masonry-wrap">
@@ -33,7 +35,7 @@
                 <div class="entry__text">
                     <div class="entry__header">
 
-                        <h2 class="entry__title"><a href="single-standard.html">Just a Standard Format Post.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Just a Standard Format Post.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Design</a> 
@@ -65,7 +67,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">10 Interesting Facts About Caffeine.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">10 Interesting Facts About Caffeine.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Health</a>
@@ -96,7 +98,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">Health Benefits Of Morning Dew.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Health Benefits Of Morning Dew.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Lifestyle</a>
@@ -128,7 +130,7 @@
                     <div class="entry__text">
                         <div class="entry__header">
                             
-                            <h2 class="entry__title"><a href="single-standard.html">The Art Of Visual Storytelling.</a></h2>
+                            <h2 class="entry__title"><a href="{% url 'DetailView' %}">The Art Of Visual Storytelling.</a></h2>
                             
                             <div class="entry__meta">
                                 <span class="entry__meta-cat">
@@ -136,7 +138,7 @@
                                     <a href="category.html">Work</a>
                                 </span>
                                 <span class="entry__meta-date">
-                                    <a href="single-standard.html">Apr 26, 2019</a>
+                                    <a href="{% url 'DetailView' %}">Apr 26, 2019</a>
                                 </span>
                             </div>
                         </div>
@@ -161,7 +163,7 @@
                 <div class="entry__text">
                     <div class="entry__header">
                         
-                        <h2 class="entry__title"><a href="single-standard.html">Create Meaningful Family Moments.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Create Meaningful Family Moments.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Family</a>
@@ -222,7 +224,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">Throwback To The Good Old Days.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Throwback To The Good Old Days.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Lifestyle</a>
@@ -283,7 +285,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">Another Standard Format Post.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Another Standard Format Post.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Design</a>
@@ -324,7 +326,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-gallery.html">The Best Tropical Leaves Images.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">The Best Tropical Leaves Images.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Vacation</a>
@@ -354,7 +356,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">Using Repetition and Patterns in Photography.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">Using Repetition and Patterns in Photography.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Work</a>
@@ -384,7 +386,7 @@
 
                 <div class="entry__text">
                     <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-standard.html">How We Live Is What Makes Us Real.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'DetailView' %}">How We Live Is What Makes Us Real.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Travel</a>
@@ -426,4 +428,6 @@
         </div>
     </div>
 
-</div> <!-- end s-content -->
+</div> 
+<!-- end s-content -->
+{% endblock %}
