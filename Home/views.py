@@ -13,3 +13,6 @@ def Contact(request):
 def Post(request):
     context = {}
     return render(request, 'Home/detailed.html', context)
+
+def Add(request):
+    return render(request, 'Home/add.html', {})
