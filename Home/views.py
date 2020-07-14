@@ -9,10 +9,3 @@ def About(request):
 
 def Contact(request):
     return render(request, 'Home/contact.html', {})
-
-def Post(request):
-    context = {}
-    return render(request, 'Home/detailed.html', context)
-
-def Add(request):
-    return render(request, 'Home/add.html', {})
