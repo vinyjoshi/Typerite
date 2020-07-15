@@ -4,35 +4,37 @@
 {% block content %}
 <div class="s-content content">
     <main class="row content__page">
+    {% include 'partials/_alerts.html' %}
         <div class="row"></div>
             <div class="column large-6 tab-full">
                 <br>
                 <h3>Register</h3>
-                    <form>
+                    <form method="POST" action="{% url 'Register' %}">
+                        {% csrf_token %}
                         <div>
-                            <label>Full Name</label>
-                            <input class="full-width" type="text" placeholder="Full Name" id="sampleInput">
+                            <label>First Name</label>
+                            <input name='first_name' class="full-width" type="text" placeholder="First Name" id="sampleInput">
+                        </div>
+                        <div>
+                            <label>Last Name</label>
+                            <input name='last_name' class="full-width" type="text" placeholder="Last Name" id="sampleInput">
                         </div>
                         <div>
                             <label>Username</label>
-                            <input class="full-width" type="text" placeholder="Username" id="sampleInput">
+                            <input name='username' class="full-width" type="text" placeholder="Username" id="sampleInput">
                         </div>
                         <div>
                             <label>Email</label>
-                            <input class="full-width" type="email" placeholder="Email" id="sampleInput">
-                        </div>
-                        <div>
-                            <label>Phone Number</label>
-                            <input class="full-width" type="text" placeholder="Phone No" id="sampleInput">
+                            <input name='email' class="full-width" type="email" placeholder="Email" id="sampleInput">
                         </div>
                         <div>
                             <label>Password</label>
-                            <input class="full-width" type="password" placeholder="Password" id="sampleInput">
+                            <input name='password' class="full-width" type="password" placeholder="Password" id="sampleInput">
                         </div>
                         
                         <div>
                             <label>Confirm Password</label>
-                            <input class="full-width" type="password" placeholder="Password" id="sampleInput">
+                            <input name='password2' class="full-width" type="password" placeholder="Password" id="sampleInput">
                         </div>
                         
                         <label class="add-bottom">

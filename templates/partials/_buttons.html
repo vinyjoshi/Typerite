@@ -4,7 +4,10 @@
             <div class="row half-bottom">
                 <div class="column large-6 tab-full">
                     <p>
-                        <a class="btn btn--primary full-width" href="{% url 'Login' %}">Login / User</a>
+                        <a class="btn btn--primary full-width"
+                        {% if user.is_authenticated %} href="{% url 'Timeline' %}">{{user.first_name}} {{user.last_name}}
+                        {% else %} href="{% url 'Login' %}">Login
+                        {% endif %}</a>
                     </p>                            
                 </div>
 

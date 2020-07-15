@@ -2,6 +2,9 @@
  * TypeRite - Main JS
  *
  * ------------------------------------------------------------------- */
+setTimeout(function() {
+    $('#alert_message').fadeOut('slow');
+}, 3000);
 
 (function($) {
 

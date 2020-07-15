@@ -3,20 +3,23 @@
 
 {% block content %}
 
+
 <div class="s-content content">
     <main class="row content__page s-styles">
+    {% include 'partials/_alerts.html' %}
         <div class="row"></div>
             <div class="column large-6 tab-full">
                 <br>
                 <h3>SIGNIN</h3>
-                    <form>
+                    <form method="POST" action="{% url 'Login' %}">
+                        {% csrf_token %}
                         <div>
                             <label>Username</label>
-                            <input class="full-width" type="text" placeholder="Username" id="sampleInput">
+                            <input name='username' class="full-width" type="text" placeholder="Username" id="sampleInput">
                         </div>
                         <div>
                             <label>Password</label>
-                            <input class="full-width" type="Password" placeholder="Password" id="sampleInput">
+                            <input name='password' class="full-width" type="Password" placeholder="Password" id="sampleInput">
                         </div>
                         <input class="btn--primary full-width" type="submit" value="Submit">
                     </form>

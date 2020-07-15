@@ -36,7 +36,21 @@
 
                 <ul class="header__nav">
                     <li class="current"><a href="{% url 'Home' %}" title="">Home</a></li>
-                    <li><a href="{% url 'Home' %}" title="">Timeline</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="has-children">
+                        <a href="#" title="">Profile</a>
+                        <ul class="sub-menu">
+                        <li><a href="{% url 'Timeline' %}">Timeline</a></li>
+                        <li><a href="{% url 'Timeline' %}">Edit Profile</a></li>
+                        <li><a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                            <form action="{% url 'Logout' %}" id="logout" method="POST">
+                              {% csrf_token %}
+                              <input type="hidden">
+                            </form>
+                        </li>
+                        </ul>
+                    </li>
+                    {% endif %}
                     <li class="has-children">
                         <a href="#0" title="">Categories</a>
                         <ul class="sub-menu">

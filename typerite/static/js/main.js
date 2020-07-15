@@ -247,6 +247,10 @@
         $('.alert-box').on('click', '.alert-box__close', function() {
             $(this).parent().fadeOut(500);
         }); 
+        
+        setTimeout(function() {
+            $("#alert_message").fadeOut('slow');
+        }, 3000);
 
     };
 
