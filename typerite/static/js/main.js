@@ -242,17 +242,11 @@
 
    /* alert boxes
     * ------------------------------------------------------ */
-    var ssAlertBoxes = function() {
-
-        $('.alert-box').on('click', '.alert-box__close', function() {
-            $(this).parent().fadeOut(500);
-        }); 
-        
-        setTimeout(function() {
+    var ssAlertBoxes = setTimeout(function() {
             $("#alert_message").fadeOut('slow');
         }, 3000);
 
-    };
+    
 
 
    /* Back to Top

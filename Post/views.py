@@ -1,10 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog
 from django.contrib import messages
 
 # Create your views here.
-def Post(request):
-    return render(request, 'Post/detailed.html' , {})
+def Post(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
+    context = {
+        blog : 'blog',
+    }
+    return render(request, 'Post/detailed.html' , context)
+
+
+def Category(request):
+    return render(request, 'Post/category.html' , {})
+
 
 def Add(request):
     if request.method == 'POST':
