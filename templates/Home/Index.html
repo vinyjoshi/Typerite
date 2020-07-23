@@ -57,12 +57,12 @@
                 </div>
 
             </article> <!-- end article -->
-            {% if Blogs %}
-            {% for item in Blogs %}
+
+            {% for item in Post %}
             <article class="masonry__brick entry format-standard animate-this">
                     
                 <div class="entry__thumb">
-                    <a href="{% url 'Blog' item.pk %}" class="entry__thumb-link">
+                    <a href="{% url 'Blog' %}" class="entry__thumb-link">
                         <img src="{{ item.Photo.url }}" alt="">
                     </a>
                 </div>
@@ -70,10 +70,10 @@
                 <div class="entry__text">
                     <div class="entry__header">
 
-                        <h2 class="entry__title"><a href="{% url 'Blog' %}">{{ item.Title }}.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'Blog' item.pk %}">{{ item.Title }}.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
-                                <a href="category.html">{{ item.Tag }}</a> 
+                                <a href="#">{{ item.Tag }}</a> 
                             </span>
                             <span class="entry__meta-date">
                                 <a href="{% url 'Blog' %}">{{item.date}}</a>
@@ -90,7 +90,6 @@
 
             </article> <!-- end article -->
             {% endfor %}
-            {% endif %}
 
             <article class="masonry__brick entry format-standard animate-this">
                     
