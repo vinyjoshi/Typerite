@@ -6,9 +6,9 @@ from django.contrib import messages
 # Create your views here.
 def Home(request):
     Blogs = Blog.objects.all().order_by('-date')
-    for i in range(s):
-        if (Blogs[i]):
-            print(Blogs[i].Title)
+    #for i in range(s):
+    #    if (Blogs[i]):
+    #        print(Blogs[i].Title)
             #data = (Blog.objects.get(pk=i).Content).split("\n",2)
             #print(i)
     context = {

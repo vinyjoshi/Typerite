@@ -7,43 +7,16 @@
             <main class="row content__page">
                 <div class="row"></div>
                 <div class="comments-wrap">
-                    <div class="column large-12 comment-respond">
+                    <div class="column comment-respond">
                         <!-- START respond -->
                         <div id="respond">
             
                             <h3 class="h2">Write a Blog <span>Add Pictures and Videos as per your requirements.</span></h3>
             
-                            <form name="contactForm" id="contactForm" method="POST" action="{% url 'Add' %}">
+                            <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                    <div class="form-field">
-                                        <input name="Title" class="full-width" placeholder="Title" value="" type="text">
-                                    </div>
-                                    <div class="form-field">
-                                        <input name="Tag" class="full-width" placeholder="Tags" value="" type="text">
-                                    </div>
-                                    <label>Add Images(Atleast One)</label>                                    
-                                    <div class="form-field">
-                                        <input type="file" id="myFile" name="Photo">
-                                    </div>
-                                    <div class="form-field">
-                                        <input type="file" id="myFile" name="Photo1">
-                                    </div>
-                                    <div class="form-field">
-                                        <input type="file" id="myFile" name="Photo2">
-                                    </div>
-                                    <label>Add Video</label>                                    
-                                    <div class="form-field">
-                                        <input type="file" id="myFile" name="Video">
-                                    </div>
-                                    <label>Thumbnail(Video)</label>                                    
-                                    <div class="form-field">
-                                        <input type="file" id="myFile" name="Thumbnail">
-                                    </div>
-                                    <div class="message form-field">
-                                        <textarea name="Content" class="full-width" placeholder="Content"></textarea>
-                                    </div>
-
-                                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
+                                {{ form.as_p }}
+                                <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
                             </form> 
                             <!-- end form -->
                         </div>
@@ -54,9 +27,7 @@
                 <!-- end comments-wrap -->
 
 
-                        <div class="column large-6 tab-full">
-
-                            <h3></h3>
+                        <div class="column tab-full">
 
                             <aside class="pull-quote">
                                 <blockquote>
