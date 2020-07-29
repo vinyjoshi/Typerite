@@ -35,9 +35,13 @@
             <nav class="header__nav-wrap">
 
                 <ul class="header__nav">
-                    <li class="current"><a href="{% url 'Home' %}" title="">Home</a></li>
+                    <li {% if request.path == '/' %} class="current" {% endif %}>
+                        <a href="{% url 'Home' %}" title="">Home</a>
+                    </li>
                     {% if user.is_authenticated %}
-                    <li class="has-children">
+                    <li {% if '/Accounts/' in request.path %} class="current has-children" 
+                        {% else %} class="has-children" 
+                        {% endif %}>
                         <a href="#" title="">Profile</a>
                         <ul class="sub-menu">
                         <li><a href="{% url 'Timeline' %}">Timeline</a></li>
@@ -52,7 +56,9 @@
                     </li>
                     {% endif %}
                     {% if Categories %}
-                    <li class="has-children">
+                    <li {% if '/Category/' in request.path %} class="current has-children" 
+                        {% else %} class="has-children" 
+                        {% endif %}>
                         <a href="#" title="">Category</a>
                         <ul class="sub-menu">
                             {% for item in Categories %}
@@ -61,8 +67,12 @@
                         </ul>
                     </li>
                     {% endif %} 
-                    <li><a href="{% url 'About' %}" title="">About</a></li>
-                    <li><a href="{% url 'Contact' %}" title="">Contact</a></li>
+                    <li {% if '/About' in request.path %} class="current" {% endif %}>
+                        <a href="{% url 'About' %}" title="">About</a>
+                    </li>
+                    <li {% if '/Contact' in request.path %} class="current" {% endif %}>
+                        <a href="{% url 'Contact' %}" title="">Contact</a>
+                    </li>
                 </ul> <!-- end header__nav -->
 
                 <ul class="header__social">

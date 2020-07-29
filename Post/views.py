@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog, Comment
+from Post.models import *
 from django.contrib import messages
 from django.views import View
 from django.views.generic import *
@@ -13,9 +14,11 @@ class Post(DetailView):
 
 def CategoryView(request,cats):
     Category_is = Blog.objects.filter(Category=cats)
+    Categories = Category.objects.all()
     context = {
         'Category_is':Category_is,
         'cats':cats.title(),
+        'Categories' : Categories,
     }
     return render(request, 'Post/category.html', context)    
 
