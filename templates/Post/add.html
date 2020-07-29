@@ -4,50 +4,16 @@
 {% block content %}
         <!-- site content -->
         <div class="s-content content">
-            <main class="row content__page">
-                <div class="row"></div>
-                <div class="comments-wrap">
-                    <div class="column comment-respond">
-                        <!-- START respond -->
-                        <div id="respond">
+            <section class="column large-full entry format-standard">
             
-                            <h3 class="h2">Write a Blog <span>Add Pictures and Videos as per your requirements.</span></h3>
-            
-                            <form method="POST" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
-                            </form> 
-                            <!-- end form -->
-                        </div>
-                        <!-- END respond-->
-                    </div> 
-                    <!-- end comment-respond -->            
-                </div> 
-                <!-- end comments-wrap -->
-
-
-                        <div class="column tab-full">
-
-                            <aside class="pull-quote">
-                                <blockquote>
-                                <p>
-                                When you look in the eyes of grace, when you meet grace, 
-                                when you embrace grace, when you see the nail prints in 
-                                grace’s hands and the fire in his eyes, when you feel his 
-                                relentless love for you - it will not motivate you to sin. 
-                                It will motivate you to righteousness.
-                                </p>
-                                </blockquote>
-                            </aside>
-
-                        </div>
-
-                        
-                    </div>
-            </main>
-
-        </div> 
-        <!-- end s-content -->
-
+                <h3 class="h2">Write your Blog Here. </h3>
+                <br>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
+                </form> 
+                <!-- end form -->
+            </section> 
+        </div>   
     {% endblock %}

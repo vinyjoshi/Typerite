@@ -3,8 +3,5 @@ from .views import Add, Post
 
 urlpatterns = [
     path('Add/', Add.as_view(), name='Add'),
-    path('detail/', Post, name='Blog'),
-    path('Add/', views.Add, name='Add'),
-    path('Category/', views.Category, name='Category'),
-    path('detail/<int:pk>', views.Post, name='Blog'),
+    path('detail/<int:pk>', Post.as_view(), name='Blog'),
 ]

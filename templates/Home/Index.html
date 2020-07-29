@@ -29,7 +29,7 @@
             <article class="masonry__brick entry format-standard animate-this">
                     
                 <div class="entry__thumb">
-                    <a href="{% url 'Blog' %}" class="entry__thumb-link">
+                    <a href="{% url 'Home' %}" class="entry__thumb-link">
                         <img src="{% static 'images/thumbs/masonry/woodcraft-600.jpg' %}" alt="">
                     </a>
                 </div>
@@ -37,14 +37,14 @@
                 <div class="entry__text">
                     <div class="entry__header">
 
-                        <h2 class="entry__title"><a href="{% url 'Blog' %}">Just a Standard Format Post.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'Home' %}">Just a Standard Format Post.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
                                 <a href="category.html">Design</a> 
                                 <a href="category.html">Photography</a>
                             </span>
                             <span class="entry__meta-date">
-                                <a href="{% url 'Blog' %}">Apr 29, 2019</a>
+                                <a href="{% url 'Home' %}">Apr 29, 2019</a>
                             </span>
                         </div>
                         
@@ -57,26 +57,25 @@
                 </div>
 
             </article> <!-- end article -->
-
-            {% for item in Post %}
+            {% for blog in object_list %}
             <article class="masonry__brick entry format-standard animate-this">
                     
                 <div class="entry__thumb">
-                    <a href="{% url 'Blog' %}" class="entry__thumb-link">
-                        <img src="{{ item.Photo.url }}" alt="">
+                    <a href="{% url 'Blog' blog.pk %}" class="entry__thumb-link">
+                        <img src="{{ blog.Photo.url }}" alt="">
                     </a>
                 </div>
 
                 <div class="entry__text">
                     <div class="entry__header">
 
-                        <h2 class="entry__title"><a href="{% url 'Blog' item.pk %}">{{ item.Title }}.</a></h2>
+                        <h2 class="entry__title"><a href="{% url 'Blog' blog.pk %}">{{ blog.Title }}.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
-                                <a href="#">{{ item.Tag }}</a> 
+                                <a href="#">{{ blog.Tag }}</a> 
                             </span>
                             <span class="entry__meta-date">
-                                <a href="{% url 'Blog' %}">{{item.date}}</a>
+                                <a href="#">{{blog.date}}</a>
                             </span>
                         </div>
                         
@@ -90,38 +89,7 @@
 
             </article> <!-- end article -->
             {% endfor %}
-
-            <article class="masonry__brick entry format-standard animate-this">
-                    
-                <div class="entry__thumb">
-                    <a href="{% url 'Blog' %}" class="entry__thumb-link">
-                        <img src="{% static 'images/thumbs/masonry/tulips-600.jpg' %}" alt="">
-                    </a>
-                </div>
-
-                <div class="entry__text">
-                    <div class="entry__header">
-                        <h2 class="entry__title"><a href="{% url 'Blog' %}">10 Interesting Facts About Caffeine.</a></h2>
-                        <div class="entry__meta">
-                            <span class="entry__meta-cat">
-                                <a href="category.html">Health</a>
-                            </span>
-                            <span class="entry__meta-date">
-                                <a href="{% url 'Blog' %}">Apr 28, 2019</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="entry__excerpt">
-                        <p>
-                        Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                        </p>
-                    </div>
-                </div>
-
-            </article> <!-- end article -->
-            
-
-            
+           
             <article class="masonry__brick entry format-video animate-this">
                     
                 <div class="entry__thumb video-image">
@@ -139,7 +107,7 @@
                                 <a href="category.html">Health</a>
                             </span>
                             <span class="entry__meta-date">
-                                <a href="{% url 'Blog' %}">Apr 24, 2019</a>
+                                <a href="#">Apr 24, 2019</a>
                             </span>
                         </div>
                     </div>

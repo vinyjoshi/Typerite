@@ -66,23 +66,10 @@
 
                     <h3 class="h2">Say Hello</h3>
         
-                    <form name="contactForm" id="contactForm" method="POST" action="{% url 'Contact' %}">
+                    <form name="contactForm" id="contactForm" method="POST">
                         {% csrf_token %}
-    
-                            <div class="form-field">
-                                <input name="Name" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
-                            </div>
-    
-                            <div class="form-field">
-                                <input name="Email" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
-                            </div>
-    
-                            <div class="message form-field">
-                                <textarea name="Message" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
-                            </div>
-    
-                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Send Message" type="submit">
-
+                        {{ form.as_p }}
+                        <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Send Message" type="submit">
                     </form> <!-- end form -->
 
                 </section>
