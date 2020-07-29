@@ -10,7 +10,15 @@ from .forms import BlogForm
 class Post(DetailView):
     model = Blog
     template_name = 'Post/detailed.html'
-    
+
+def CategoryView(request,cats):
+    Category_is = Blog.objects.filter(Category=cats)
+    context = {
+        'Category_is':Category_is,
+        'cats':cats.title(),
+    }
+    return render(request, 'Post/category.html', context)    
+
 class Add(View):
     model = Blog
     form_class = BlogForm
