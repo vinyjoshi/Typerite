@@ -10,6 +10,7 @@
                 <br>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
+                    {{ form.media }}
                     {{ form.as_p }}
                     <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
                 </form> 

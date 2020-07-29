@@ -6,7 +6,7 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = (
-            'Title','Tag','Category','Photo','Photo1','Photo2','Thumbnail','Video','Content',
+            'Title','Tag','Category','Photo','Content',
         )
         widgets = {
             'Title' : forms.TextInput(attrs={"class": "form-field full-width"}),
