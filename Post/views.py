@@ -19,19 +19,9 @@ def CategoryView(request,cats):
     }
     return render(request, 'Post/category.html', context)    
 
-class Add(View):
+class Add(CreateView):
     model = Blog
     form_class = BlogForm
     template_name = 'Post/add.html'
 
-    def get(self, request):
-        form = self.form_class()
-        return render(request, self.template_name, {'form':form})
-
-    def post(self,request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your Blog has been Uploaded!')
-        return render(request, self.template_name, {'form':form})
     

@@ -26,37 +26,7 @@
 
             </article> <!-- end article -->
 
-            <article class="masonry__brick entry format-standard animate-this">
-                    
-                <div class="entry__thumb">
-                    <a href="{% url 'Home' %}" class="entry__thumb-link">
-                        <img src="{% static 'images/thumbs/masonry/woodcraft-600.jpg' %}" alt="">
-                    </a>
-                </div>
-
-                <div class="entry__text">
-                    <div class="entry__header">
-
-                        <h2 class="entry__title"><a href="{% url 'Home' %}">Just a Standard Format Post.</a></h2>
-                        <div class="entry__meta">
-                            <span class="entry__meta-cat">
-                                <a href="category.html">Design</a> 
-                                <a href="category.html">Photography</a>
-                            </span>
-                            <span class="entry__meta-date">
-                                <a href="{% url 'Home' %}">Apr 29, 2019</a>
-                            </span>
-                        </div>
-                        
-                    </div>
-                    <div class="entry__excerpt">
-                        <p>
-                        Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                        </p>
-                    </div>
-                </div>
-
-            </article> <!-- end article -->
+            
             {% for blog in object_list %}
             <article class="masonry__brick entry format-standard animate-this">
                     
@@ -72,7 +42,7 @@
                         <h2 class="entry__title"><a href="{% url 'Blog' blog.pk %}">{{ blog.Title }}.</a></h2>
                         <div class="entry__meta">
                             <span class="entry__meta-cat">
-                                <a href="#">{{ blog.Tag }}</a> 
+                                <a href="#">{{ blog.Category }}</a> 
                             </span>
                             <span class="entry__meta-date">
                                 <a href="#">{{blog.date}}</a>
@@ -81,45 +51,14 @@
                         
                     </div>
                     <div class="entry__excerpt">
-                        <p>
-                        Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                        </p>
+                        <p>{{blog.Content|slice:":200"|safe}}</p>
                     </div>
                 </div>
 
             </article> <!-- end article -->
             {% endfor %}
            
-            <article class="masonry__brick entry format-video animate-this">
-                    
-                <div class="entry__thumb video-image">
-                    <a href="https://player.vimeo.com/video/117310401?color=339989&title=0&byline=0&portrait=0" data-lity class="entry__thumb-link">
-                        <img src="{% static 'images/thumbs/masonry/cookies-600.jpg' %}" alt="">
-                    </a>
-                </div>
-
-                <div class="entry__text">
-                    <div class="entry__header">
-                        <h2 class="entry__title"><a href="single-video.html">No Sugar Oatmeal Cookies.</a></h2>
-                        <div class="entry__meta">
-                            <span class="entry__meta-cat">
-                                <a href="category.html">Lifestyle</a>
-                                <a href="category.html">Health</a>
-                            </span>
-                            <span class="entry__meta-date">
-                                <a href="#">Apr 24, 2019</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="entry__excerpt">
-                        <p>
-                        Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...
-                        </p>
-                    </div>
-                </div>
-
-            </article> <!-- end article --> 
-
+            
         </div> <!-- end masonry -->
 
     </div> <!-- end masonry-wrap -->

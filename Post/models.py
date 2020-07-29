@@ -20,11 +20,14 @@ class Blog(models.Model):
     date = models.DateTimeField(default=datetime.now, blank=True)    
     time = models.TimeField(auto_now_add=True)
     Content = RichTextField(blank=False, null=True)
-    Photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    Photo = models.ImageField(null=True,blank=True,upload_to='photos/%Y/%m/%d/')
     Category = models.CharField(max_length=255,default='Nature')
     
     def __str__(self):
         return self.Title
+    
+    def get_absolute_url(self):
+        return reverse('Home')
 
 class Comment(models.Model):
     Name = models.CharField(max_length=100)
