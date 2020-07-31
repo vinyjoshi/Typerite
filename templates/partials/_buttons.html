@@ -13,7 +13,10 @@
 
                 <div class="column large-6 tab-full">
                     <p>
-                        <a class="btn btn--primary full-width" href="{% url 'Add' %}">Add Post</a>
+                        <a class="btn btn--primary full-width"
+                        {% if user.is_authenticated %} href="{% url 'Add' %}">Add Post
+                        {% else %} href="{% url 'Register' %}">Register
+                        {% endif %}</a>
                     </p>
                 </div>
             </div> 

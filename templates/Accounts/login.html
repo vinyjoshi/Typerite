@@ -5,9 +5,8 @@
 
 
 <div class="s-content content">
-    <main class="row content__page s-styles">
     {% include 'partials/_alerts.html' %}
-        <div class="row"></div>
+    <main class="row content__page s-styles">
             <div class="column large-6 tab-full">
                 <br>
                 <h3>SIGNIN</h3>
@@ -23,38 +22,29 @@
                         </div>
                         <input class="btn--primary full-width" type="submit" value="Submit">
                     </form>
-                </div>
-                
-                <div class="column large-6 tab-full">
-                    <aside class="pull-quote">
-                        <blockquote>
-                        <p>
-                            There is a God-shaped vacuum in the heart of each man which cannot be satisfied 
-                            by any created thing but only by God the Creator.
-                        </p>
-                        <section id="styles" class="column large-full">
-                            <div class="row half-bottom">
-                                <div class="column tab-full">
-                                    <p>
-                                        <a class="btn full-width" href="{% url 'Register' %}">SIGNUP</a>
-                                    </p>                            
-                                </div>
-                            </div> 
-                            <!-- end row -->
-                        </section> 
-                        <!-- end styles -->
-                
-                        </blockquote>
-                    </aside>
-
-                </div>
-                
             </div>
-            
-
-
-    
-
+                
+            <div class="column large-6 tab-full">
+                <aside class="pull-quote">
+                    <blockquote>
+                    <p>
+                        There is a God-shaped vacuum in the heart of each man which cannot be satisfied 
+                        by any created thing but only by God the Creator.
+                    </p>
+                    <section id="styles" class="column large-full">
+                        <div class="row half-bottom">
+                            <div class="column tab-full">
+                                <p>
+                                    <a class="btn full-width" href="{% url 'Register' %}">SIGNUP</a>
+                                </p>                            
+                            </div>
+                        </div> 
+                        <!-- end row -->
+                    </section> 
+                    <!-- end styles -->
+                    </blockquote>
+                </aside>
+            </div>
     </main>
 
 </div> 

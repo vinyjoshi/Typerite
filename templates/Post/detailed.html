@@ -17,7 +17,7 @@
                     <div class="content__page-header entry__header">
                         <h1 class="display-1 entry__title">{{ blog.Title }}</h1>
                         <ul class="entry__header-meta">
-                            <li class="author">By <a href="#0">Jonathan Doe</a></li>
+                            <li class="author">By <a href="#0">{{ blog.Author.first_name }} {{ blog.Author.last_name }}</a></li>
                             <li class="date">{{ blog.date}}</li>
                             <li class="cat-links">
                                 <a href="#0">{{ blog.Category }}</a>

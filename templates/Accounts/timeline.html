@@ -2,121 +2,85 @@
 {% load static %}
 
 {% block content %}
+{% include 'partials/_alerts.html' %}
+              
 <div class="s-content">
-<!DOCTYPE html>
-<html lang="en">
+            
+    <div class="masonry-wrap">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinay Joshi</title>
-    <link href="{% static '/css/profile.css' %}" rel="stylesheet" type="text/css">
-    <script src=" https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"> </script> <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+        <div class="masonry">
 
-<body>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card card-body h-100 border-info" id="profile-wrapper"><img id="profile-pic"
-                        src="{% static '/images/Profile.png' %}">
-                    <hr>
-                    <b>Hi, I am Vinay</b>
-                    I love coding, doing research and collaborating.
-                
+            <div class="grid-sizer"></div>
+
+            
+
+            <article class="masonry__brick entry format-quote animate-this">
+                    
+                <div class="entry__thumb">
+                    <blockquote>
+                        <p>Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.</p>
+
+                        <cite>Dieter Rams</cite>
+                    </blockquote>
+                </div>   
+
+            </article> <!-- end article -->
+
+            
+            {% for blog in timeline %}
+            <article class="masonry__brick entry format-standard animate-this">
+                    
+                <div class="entry__thumb">
+                    <a href="{% url 'Blog' blog.pk %}" class="entry__thumb-link">
+                        <img src="{{ blog.Photo.url }}" alt="">
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <div class="card card-body h-100 border-info">
-                    <b>My First Job as a Developer</b>
-                    <hr> Up until this moment i have no prior Job Experience in Web Development or Backend but I am trying
-                    my best to work with this Beatiful Language and Framework to built something really good.
-                    <br>
-                    For now i am just a beginner but with the Time i am putting into this along with all the Hardwork and 
-                    Dedication, I think a few months time with be Enough for me to grasp everything i can about this framework 
-                    and then the real work will start. 
-                    <br>    
-                    <br>
-                    <br>
-                    <hr>
-                    You can find me on following platforms:
-                    <br>
-                    <ul class="social-links">
-                        <li>
-                            <a href="https://www.facebook.com/vinay.joshi.9210256">
-                                <ion-icon name="logo-facebook"></ion-icon></a>
-                        </li>
-                        <li><a href="https://www.instagram.com/viny_joshi/">
-                            <ion-icon name="logo-instagram"></ion-icon>
-                        </a>
-                        </li>
-                        <li><a href="https://twitter.com/viny_joshi">
-                            <ion-icon name="logo-twitter"></ion-icon></a>
-                        </li>
-                        <li><a href="https://github.com/vinyjoshi">
-                            <ion-icon name="logo-github"></ion-icon></a>
-                        </li>
-                    </ul>
+
+                <div class="entry__text">
+                    <div class="entry__header">
+
+                        <h2 class="entry__title"><a href="{% url 'Blog' blog.pk %}">{{ blog.Title }}.</a></h2>
+                        <div class="entry__meta">
+                            <span class="entry__meta-cat">
+                                <a href="#">{{ blog.Category }}</a> 
+                            </span>
+                            <span class="entry__meta-date">
+                                <a href="#">{{blog.date}}</a>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>{{blog.Content|slice:":200"|safe}}</p>
+                    </div>
                 </div>
-            </div>
+
+            </article> <!-- end article -->
+            {% endfor %}
+           
+            
+        </div> <!-- end masonry -->
+
+    </div> <!-- end masonry-wrap -->
+
+    <div class="row">
+        <div class="column large-full">
+            <nav class="pgn">
+                <ul>
+                    <li><a class="pgn__prev" href="#0"></a>Prev</a></li>
+                    <li><a class="pgn__num" href="#0">1</a></li>
+                    <li><span class="pgn__num current">2</span></li>
+                    <li><a class="pgn__num" href="#0">3</a></li>
+                    <li><a class="pgn__num" href="#0">4</a></li>
+                    <li><a class="pgn__num" href="#0">5</a></li>
+                    <li><span class="pgn__num dots">…</span></li>
+                    <li><a class="pgn__num" href="#0">8</a></li>
+                    <li><a class="pgn__next" href="#0">Next</a></li>
+                </ul>
+            </nav>
         </div>
-        <br>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-body h-100">
-                    <b>My Experience as a Developer</b>
-                    <hr> I have no prior Experience at Web Development and this is the first Complete Website that i have worked on.
-                    Tho I am just a beginner right now, You all can wait for a few months or so and you'll see what all I can do.
-                    With the confidence I have gained after building this first Solo project of mine with very few google search and
-                    Django documentation to help me out, I think its my time now. 
-                    See you in a few Years.
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-body h-100">
-                    <b>What i Know</b>
-                    <hr> For now i know only a few things. I can code with with HTML, CSS, C++, C, Python, MySQL. 
-                    <br>
-                    Right now I am working with JavaScript, Jquery, Django(will be complete soon enough.), React.
-                    <br>
-                    I can code Really well with Python and especially GUI Featuring Programs, they are my Strong point
-                    and soon enough in near future i'll be working on a project using Python Tkinter.
-                </div>
-            </div>
-        </div>
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-body h-100">
-                    <b>How I Learn</b>
-                    <hr> 
-                    I took my C++ and C classes in School and College respectively. Apart from that, I've learned all the 
-                    the other things using Youtube tutorials or buying courses on Udemy. Google and Stack Overflow have been 
-                    really supportive all this time helping me whenever and wherever i am stuck with a code.
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-body h-100">
-                    <b>My Short term Goals</b>
-                    <hr> My short term goals are:
-                    <ul class="goals">
-                        <li>Learn JavaScript and JQuery</li>
-                        <li>Learn all the Functionalities of Django</li>
-                        <li>Work on as much Projects as possible</li>
-                        <li>Create a Project using API</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <br>
-
-</body>
-
-</html>
-</div>
+</div> 
+<!-- end s-content -->
 {% endblock %}

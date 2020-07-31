@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from Post.models import *
+from Home.models import *
+from django.views.generic import *
 
 # Create your views here.
 def Login(request):
@@ -58,6 +61,14 @@ def Register(request):
     else:
         return render(request, 'Accounts/register.html')
 
-def Timeline(request):
-    context = {}
-    return render(request, 'Accounts/timeline.html', context)
+class Timeline(View):
+    model = Blog
+    template_name = 'Accounts/timeline.html'
+
+    def get(self,request):
+        timeline = Blog.objects.all().filter(Author_id=request.user.id)
+        context = {
+            "timeline":timeline,
+        }
+        return render(request,self.template_name,context)
+        

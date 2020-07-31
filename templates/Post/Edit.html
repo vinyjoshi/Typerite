@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- site content -->
+        <div class="s-content content">
+            <section class="column large-full entry format-standard">
+            
+                <h3 class="h2">Update your Blog:</h3>
+                <br>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                    <p>Confirm the changes?</p>
+                    <input id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Upload" type="submit">
+                </form> 
+                <!-- end form -->
+            </section> 
+        </div>   
+    {% endblock %}

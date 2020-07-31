@@ -1,11 +1,13 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Blog, Comment
-from Post.models import *
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from django.contrib import messages
-from django.views import View
 from django.views.generic import *
+from .models import Blog, Comment
+from django.views import View
 from .forms import BlogForm
+from Post.models import *
+
 
 # Create your views here.
 class Post(DetailView):
@@ -27,4 +29,12 @@ class Add(CreateView):
     form_class = BlogForm
     template_name = 'Post/add.html'
 
-    
+class DeletePOST(DeleteView):
+    model = Blog
+    template_name = 'Post/Delete.html'
+    success_url = reverse_lazy("Home")
+
+class EditPOST(UpdateView):
+    model = Blog
+    template_name = 'Post/Edit.html'
+    fields = ['Title','Tag','Content','Photo','Category']

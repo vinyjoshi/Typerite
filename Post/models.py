@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -16,12 +17,12 @@ class Category(models.Model):
 
 class Blog(models.Model):
     Title = models.CharField(max_length=100)
-    Tag = models.CharField(max_length=100)
+    Author = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(default=datetime.now, blank=True)    
     time = models.TimeField(auto_now_add=True)
     Content = RichTextField(blank=False, null=True)
     Photo = models.ImageField(null=True,blank=True,upload_to='photos/%Y/%m/%d/')
-    Category = models.CharField(max_length=255,default='Nature')
+    Category = models.CharField(max_length=255)
     
     def __str__(self):
         return self.Title
@@ -33,6 +34,7 @@ class Comment(models.Model):
     Name = models.CharField(max_length=100)
     Email = models.CharField(max_length=100)
     Comment = models.TextField(blank=False)
+    user_id = models.IntegerField(blank=True)
     
     def __str__(self):
        return self.Name

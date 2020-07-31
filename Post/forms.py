@@ -6,13 +6,12 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = (
-            'Title','Tag','Category','Photo','Content',
+            'Title','Author','Category','Photo','Content',
         )
         widgets = {
             'Title' : forms.TextInput(attrs={"class": "form-field full-width"}),
-            'Tag' : forms.TextInput(attrs={"class": "form-field full-width"}),
+            'Author' : forms.Select(attrs={"class": "form-field full-width"}),
             'Content' : forms.Textarea(attrs={"class": "message form-field full-width"}),
             'Category' : forms.Select(choices=Category_list,attrs={"class": "form-field full-width"}),
-            
         }
 
