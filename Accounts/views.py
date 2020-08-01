@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from Post.models import *
 from Home.models import *
 from django.views.generic import *
 from django.core.paginator import Paginator
+from django.contrib.auth.forms import UserChangeForm
 
 # Create your views here.
 def Login(request):
@@ -21,7 +23,7 @@ def Login(request):
             messages.error(request,'Invalid Credentials! Try Again.')
             return redirect('Login')
     else:
-        return render(request, 'Accounts/login.html')
+        return render(request, 'Accounts/registration/login.html')
 
 def Logout(request):
     if request.method == 'POST':
@@ -60,11 +62,11 @@ def Register(request):
             messages.error(request, 'The Passwords donot match!')
             return redirect('Register')
     else:
-        return render(request, 'Accounts/register.html')
+        return render(request, 'Accounts/registration/register.html')
 
 class Timeline(View):
     model = Blog
-    template_name = 'Accounts/timeline.html'
+    template_name = 'Accounts/registration/timeline.html'
 
     def get(self,request):
         timeline = Blog.objects.all().filter(Author_id=request.user.id).order_by('-date')
@@ -77,4 +79,8 @@ class Timeline(View):
             "page_obj": page_obj,
         }
         return render(request,self.template_name,context)
-        
+    
+class Profile(UpdateView):
+    form_class = UserChangeForm
+    template_name = 'Accounts/registration/Profile.html'
+    success_url = reverse_lazy('Home')

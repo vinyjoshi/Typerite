@@ -31,10 +31,10 @@ class Blog(models.Model):
         return reverse('Home')
 
 class Comment(models.Model):
+    Post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
     Name = models.CharField(max_length=100)
-    Email = models.CharField(max_length=100)
+    Date = models.DateField(auto_now_add=True)
     Comment = models.TextField(blank=False)
-    user_id = models.IntegerField(blank=True)
-    
+   
     def __str__(self):
-       return self.Name
+       return '%s - %s' % (self.Post.Title, self.Name)
