@@ -2,15 +2,17 @@
 {% load static %}
 
 {% block content %}
-        <!-- site content -->
+      
+<!-- site content -->
         <div class="s-content content">
             <main class="row content__page">
                 
+            
                 <article class="column large-full entry format-standard">
-
+                    
                     <div class="media-wrap entry__media">
                         <div class="entry__post-thumb">
-                            <img src="{{ blog.Photo.url }}" alt="">
+                            <img style="width:850px" src="{{ blog.Photo.url }}" alt="">
                         </div>  
                     </div>
 
@@ -19,9 +21,7 @@
                         <ul class="entry__header-meta">
                             <li class="author">By <a href="#0">{{ blog.Author.first_name }} {{ blog.Author.last_name }}</a></li>
                             <li class="date">{{ blog.date}}</li>
-                            <li class="cat-links">
-                                <a href="#0">{{ blog.Category }}</a>
-                            </li>
+                            <li class="cat-links"><a href="{% url 'Category' blog.Category %}">{{ blog.Category }}</a></li>
                         </ul>
                     </div> 
                     <!-- end entry__header -->
@@ -32,19 +32,10 @@
                         {{blog.Content| safe}}
                         </p>
 
-                        {% if blog.Photo2 %}
-                        <p>
-                        <img src="{{ blog.Photo2.url }}" alt="">
-                        </p>
-                        {% endif %}
-                        
-                        {% if blog.Video %}
-                        <p>
-                            <img src="{{ blog.Thumbnail.url }}" alt="">
-                            
-                        </p>
-                        {% endif %}
-
+                        {% if Author_id == user.id %}
+                        {% include 'partials/_buttons.html' %} 
+                        {% endif %} 
+                       <!--
                         <p class="entry__tags">
                             <span>Post Tags</span>
         
@@ -56,14 +47,15 @@
                             </span>
             
                         </p>
+                        -->
                     </div> <!-- end entry content -->
 
                     <div class="entry__pagenav">
                         <div class="entry__nav">
                             <div class="entry__prev">
-                                <a href="#0" rel="prev">
+                                <a href="{% url 'Blog' blog.pk %}" rel="prev">
                                     <span>Previous Post</span>
-                                    Tips on Minimalist Design 
+                                    {{ blog.Title }} 
                                 </a>
                             </div>
                             <div class="entry__next">
@@ -77,17 +69,18 @@
 
                     <div class="entry__related">
                         <h3 class="h2">Related Articles</h3>
-                        {% for i in Article %}
                         <ul class="related">
+                            {% for i in data %}
                             <li class="related__item">
-                                <a href="#" class="related__link">
-                                    <img src="{% static 'images/thumbs/masonry/walk-600.jpg' %}" alt="">
+                                <a href="{% url 'Blog' i.pk %}" class="related__link">
+                                    <img style="width:300px; height:300px;" src="{{ i.Photo.url }}" alt="">
+                                    <h5 class="related__post-title">{{ i.Title }}</h5>
                                 </a>
-                                <h5 class="related__post-title">Using Repetition and Patterns in Photography.</h5>
+                                
                             </li>
+                            {% endfor %}
                         </ul>
                     </div> <!-- end entry related -->
-                    {% endfor %}
                 </article> <!-- end column large-full entry-->
 
 

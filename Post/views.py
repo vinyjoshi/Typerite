@@ -7,12 +7,21 @@ from .models import Blog, Comment
 from django.views import View
 from .forms import BlogForm
 from Post.models import *
+import random
 
 
 # Create your views here.
 class Post(DetailView):
-    model = Blog
+    model = Blog    
     template_name = 'Post/detailed.html'
+
+    def get_context_data(self,*args,**kwargs):
+        article = Blog.objects.all()
+        data = random.sample(list(article), 3)
+        context = super(Post,self).get_context_data(*args,**kwargs)
+        context['data'] = data
+        return context
+        
 
 def CategoryView(request,cats):
     Category_is = Blog.objects.filter(Category=cats)
@@ -37,4 +46,4 @@ class DeletePOST(DeleteView):
 class EditPOST(UpdateView):
     model = Blog
     template_name = 'Post/Edit.html'
-    fields = ['Title','Tag','Content','Photo','Category']
+    fields = ['Title','Content','Photo','Category']

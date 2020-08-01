@@ -5,7 +5,12 @@
                 <div class="column large-6 tab-full">
                     <p>
                         <a class="btn btn--primary full-width"
-                        {% if user.is_authenticated %} href="{% url 'Timeline' %}">{{user.first_name}} {{user.last_name}}
+                        {% if user.is_authenticated %}
+                                {% if request.path == '/' %}
+                                    href="{% url 'Timeline' %}">{{user.first_name}} {{user.last_name}}
+                                {% elif "Detail" in request.path %}
+                                    href="{% url 'Edit' blog.pk %}">Edit 
+                                {% endif %}
                         {% else %} href="{% url 'Login' %}">Login
                         {% endif %}</a>
                     </p>                            
@@ -14,7 +19,12 @@
                 <div class="column large-6 tab-full">
                     <p>
                         <a class="btn btn--primary full-width"
-                        {% if user.is_authenticated %} href="{% url 'Add' %}">Add Post
+                        {% if user.is_authenticated %} 
+                                {% if request.path == '/' %}
+                                href="{% url 'Add' %}">Add Post
+                                {% elif "Detail" in request.path %}
+                                    href="{% url 'Delete' blog.pk %}">Delete
+                                {% endif %}
                         {% else %} href="{% url 'Register' %}">Register
                         {% endif %}</a>
                     </p>

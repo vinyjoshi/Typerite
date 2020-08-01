@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from Post.models import *
 from Home.models import *
 from django.views.generic import *
+from django.core.paginator import Paginator
 
 # Create your views here.
 def Login(request):
@@ -66,9 +67,14 @@ class Timeline(View):
     template_name = 'Accounts/timeline.html'
 
     def get(self,request):
-        timeline = Blog.objects.all().filter(Author_id=request.user.id)
+        timeline = Blog.objects.all().filter(Author_id=request.user.id).order_by('-date')
+        
+        paginator = Paginator(timeline, 15)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        
         context = {
-            "timeline":timeline,
+            "page_obj": page_obj,
         }
         return render(request,self.template_name,context)
         

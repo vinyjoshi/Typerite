@@ -8,7 +8,9 @@ from .forms import ContactForm
 
 # Create your views here.
 class Home(ListView):
+    paginate_by = 15
     model = Blog
+    ordering = '-date'
     template_name = 'Home/Index.html'
 
     def get_context_data(self,*args,**kwargs):
@@ -40,4 +42,3 @@ class contact(View):
             messages.success(request, 'Your Message has been delivered to our people. We will get back to you ASAP!')
             return redirect('Home')
     
- 
