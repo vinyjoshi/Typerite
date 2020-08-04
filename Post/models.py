@@ -38,3 +38,12 @@ class Comment(models.Model):
    
     def __str__(self):
        return '%s - %s' % (self.Post.Title, self.Name)
+    
+class Reply(models.Model):
+    Comment = models.ForeignKey(Comment,related_name='replies' ,on_delete=models.CASCADE)
+    Name = models.CharField(max_length=200)
+    Reply = models.TextField(blank=False)
+    Date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+       return '%s - %s' % (self.Comment.Name, self.Name)

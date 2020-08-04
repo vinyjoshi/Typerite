@@ -5,14 +5,15 @@ from django.contrib import messages
 from django.views.generic import *
 from .models import Blog, Comment
 from django.views import View
-from .forms import BlogForm
+from .forms import *
 from Post.models import *
 import random
 
 
 # Create your views here.
 class Post(DetailView):
-    model = Blog    
+    model = Blog 
+    form_class = CommentForm
     template_name = 'Post/detailed.html'
 
     def get_context_data(self,*args,**kwargs):

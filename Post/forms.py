@@ -15,3 +15,14 @@ class BlogForm(forms.ModelForm):
             'Category' : forms.Select(choices=Category_list,attrs={"class": "form-field full-width"}),
         }
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = (
+            'Name','Comment',
+        )
+        widgets = {
+            'Name' : forms.TextInput(attrs={"class": "form-field full-width"}),
+            'Comment' : forms.Textarea(attrs={"class": "message form-field full-width"}),
+        }
+
