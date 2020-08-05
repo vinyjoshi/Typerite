@@ -7,6 +7,7 @@ from Home.models import *
 from django.views.generic import *
 from django.core.paginator import Paginator
 from django.contrib.auth.forms import UserChangeForm
+import random
 
 # Create your views here.
 def Login(request):
@@ -80,7 +81,14 @@ class Timeline(View):
         }
         return render(request,self.template_name,context)
     
-class Profile(UpdateView):
-    form_class = UserChangeForm
+class Profile(View):
     template_name = 'Accounts/registration/Profile.html'
     success_url = reverse_lazy('Home')
+
+    def get(self, request):
+        article = Blog.objects.all()
+        data = random.sample(list(article), 3)
+        context = {
+            'data' : data,
+        }
+        return render(request, self.template_name, context)
