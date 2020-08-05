@@ -34,7 +34,7 @@ class Comment(models.Model):
     Post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
     Name = models.CharField(max_length=100)
     Date = models.DateField(auto_now_add=True)
-    Comment = models.TextField(blank=False)
+    comment = models.TextField(blank=False)
    
     def __str__(self):
        return '%s - %s' % (self.Post.Title, self.Name)

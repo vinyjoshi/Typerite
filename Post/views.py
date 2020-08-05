@@ -13,7 +13,6 @@ import random
 # Create your views here.
 class Post(DetailView):
     model = Blog 
-    form_class = CommentForm
     template_name = 'Post/detailed.html'
 
     def get_context_data(self,*args,**kwargs):
@@ -22,6 +21,15 @@ class Post(DetailView):
         context = super(Post,self).get_context_data(*args,**kwargs)
         context['data'] = data
         return context
+    
+def PostComment(request,pk):
+    if request.method == 'POST':
+        Post = request.POST['Post']
+        Name = request.POST['Name']
+        comment = request.POST.get('comment',False)
+        
+        Comment.objects.create(Post_id=int(Post),Name=Name,comment=comment).save()
+        return redirect('/')
         
 
 def CategoryView(request,cats):

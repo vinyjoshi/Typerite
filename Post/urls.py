@@ -7,4 +7,5 @@ urlpatterns = [
     path('Detail/<int:pk>/Delete/', DeletePOST.as_view(), name='Delete'),
     path('Detail/<int:pk>/', Post.as_view(), name='Blog'),
     path('Category/<str:cats>/', CategoryView, name='Category'),
+    path('Detail/<int:pk>/Comment', PostComment, name='PostComment'),
 ]

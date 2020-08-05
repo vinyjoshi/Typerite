@@ -115,10 +115,10 @@
                                 </div>
     
                             <div class="comment__text">
-                            <p>{{comment.Comment}}.</p>
+                            <p>{{comment.comment}}.</p>
                             </div>
                             {% if not comment.replies.all %}
-                            {%else%}
+                            {% else %}
                             {% for reply in comment.replies.all %}
                             <ul class="children">
                             <li class="depth-2 comment">
@@ -156,13 +156,16 @@
                         <div id="respond">
             
                             <h3 class="h2">Add Comment</h3>
-            
-                            <form name="contactForm" id="contactForm" method="POST">
-                                {% csrf_token %}           
-                                {{ form.as_p }}
+                            <form id="contactForm"  method="POST" action="{% url 'PostComment' blog.pk %}">
+                                {% csrf_token %}
+                                <input name='Post' class="full-width" type="hidden" id="sampleInput" value="{{ blog.pk }}">
+                                <input name='Name' class="full-width" type="hidden" id="sampleInput" value="{{user.first_name}} {{user.last_name}}">
+                                <div>
+                                    <label>Comment</label>
+                                    <input name='comment' class="full-width" type="text" placeholder="Comment" id="sampleInput" required>
+                                </div>
                                 <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
-            
-                            </form> 
+                            </form>
                             <!-- end form -->
             
                         </div>
