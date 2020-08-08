@@ -2,7 +2,37 @@
 {% load static %}
 
 {% block content %}
-<div class="s-content">
+<div class="s-content">    
+    <main class="row content__page s-styles">
+        <article class="masonry__brick entry format-standard animate-this">
+            <img src="{% static 'images/Profile.png' %}" alt="">
+            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+            <span class="entry__meta-cat">
+                <a href="#">{{ user.username }}</a> 
+            </span>
+            <br>
+            <span class="entry__meta-date">
+                <a href="#">{{user.date_joined}}</a>
+            </span>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Laboriosam reprehenderit, aut numquam qui non 
+                adipisci nulla quasi eveniet accusantium? Consequuntur
+                error sed sunt enim in alias nulla totam sapiente ex.
+            </p>                        
+        </article> 
+        <!-- end article -->
+        <div class="column large-8 comment-respond">
 
+            <!-- START respond -->
+            <div id="respond">
+                <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Edit Profile" type="submit">
+            </div>
+            <!-- END respond-->
+
+        </div> 
+        <!-- end comment-respond -->
+        
+    </main>
 </div>
 {% endblock %}

@@ -45,7 +45,7 @@
                         <a href="#" title="">Profile</a>
                         <ul class="sub-menu">
                         <li><a href="{% url 'Timeline' %}">Timeline</a></li>
-                        <li><a href="{% url 'Timeline' %}">Edit Profile</a></li>
+                        <li><a href="{% url 'Edit_Profile' %}">Edit Profile</a></li>
                         <li><a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                             <form action="{% url 'Logout' %}" id="logout" method="POST">
                               {% csrf_token %}
